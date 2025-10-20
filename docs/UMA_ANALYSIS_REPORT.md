@@ -172,19 +172,19 @@ Most ancillary data strings referenced crypto asset prices (BTC, ETH, XRP, etc.)
 ## Appendix: Data Sources & Methodology
 
 ### Data Files Used
-- `uma_sep_all_text_full.csv` – Full 14,448 proposals with ancillaryData
-- `uma_sep_all_FILTERED_PRICE_PREDICTIONS.csv` – 7,759 filtered crypto price predictions
+- `data-dumps/uma_sep_all_text_full.csv` – Full 14,448 proposals with ancillaryData
+- `data-dumps/uma_sep_all_FILTERED_PRICE_PREDICTIONS.csv` – 7,759 filtered crypto price predictions
 
 ### SQL Queries
 All filtering and aggregation performed via DuckDB SQL:
 - **Filtering Logic:** `ancillaryData LIKE '%will the price of%' AND ancillaryData LIKE '%{crypto_keyword}%'`
 - **Crypto Keywords:** bitcoin, ethereum, xrp, btc, eth, solana, sol, cardano, ada, litecoin, ltc, dogecoin, doge
-- **See:** `CRYPTO_PRICE_FILTER.sql` for complete query set
+- **See:** `sql-queries/CRYPTO_PRICE_FILTER.sql` for complete query set
 
 ### Python Scripts
-- `filter_and_export.py` – Filtered CSV generation
-- `price_prediction_analysis.py` – Metric extraction and validation
-- `duckdb_advanced_analysis.py` – Advanced aggregate analysis
+- `data-transformation-scripts/filter_and_export.py` – Filtered CSV generation
+- `data-transformation-scripts/price_prediction_analysis.py` – Metric extraction and validation
+- `data-transformation-scripts/duckdb_advanced_analysis.py` – Advanced aggregate analysis
 
 ### USDC Denomination Note
 All bond and reward values are recorded in USDC's smallest unit (1e-6 USDC = 1 unit). To convert to actual USD amounts:

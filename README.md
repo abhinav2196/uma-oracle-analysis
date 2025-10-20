@@ -6,10 +6,10 @@ Crypto price prediction proposals from UMA Optimistic Oracle v2 (September 2025)
 
 | File | Purpose |
 |------|---------|
-| `uma_sep_all_FILTERED_PRICE_PREDICTIONS.csv` | **7,759 filtered proposals** with crypto price predictions |
-| `CRYPTO_PRICE_FILTER.sql` | SQL queries (DuckDB) to reproduce the filtering |
-| `UMA_ANALYSIS_REPORT.md` | Complete analysis & findings |
-| `filter_and_export.py` | Python script to regenerate filtered CSV |
+| `data-dumps/uma_sep_all_FILTERED_PRICE_PREDICTIONS.csv` | **7,759 filtered proposals** with crypto price predictions |
+| `sql-queries/CRYPTO_PRICE_FILTER.sql` | SQL queries (DuckDB) to reproduce the filtering |
+| `docs/UMA_ANALYSIS_REPORT.md` | Complete analysis & findings |
+| `data-transformation-scripts/filter_and_export.py` | Python script to regenerate filtered CSV |
 
 ## 🔍 What's in the Data
 
@@ -30,18 +30,18 @@ Crypto price prediction proposals from UMA Optimistic Oracle v2 (September 2025)
 ### Option 1: Query with SQL (DuckDB)
 ```bash
 duckdb
-CREATE TABLE proposals AS SELECT * FROM read_csv_auto('uma_sep_all_FILTERED_PRICE_PREDICTIONS.csv');
--- Copy-paste queries from CRYPTO_PRICE_FILTER.sql
+CREATE TABLE proposals AS SELECT * FROM read_csv_auto('data-dumps/uma_sep_all_FILTERED_PRICE_PREDICTIONS.csv');
+-- Copy-paste queries from sql-queries/CRYPTO_PRICE_FILTER.sql
 ```
 
 ### Option 2: Regenerate Filtered CSV
 ```bash
-python3 filter_and_export.py
+python3 data-transformation-scripts/filter_and_export.py
 ```
-*(Requires original CSV - adjust path in script)*
+*(Requires original CSV - paths are configured in script)*
 
 ### Option 3: Read Analysis
-Open `UMA_ANALYSIS_REPORT.md` for complete findings and business insights.
+Open `docs/UMA_ANALYSIS_REPORT.md` for complete findings and business insights.
 
 ## 📊 CSV Schema
 
@@ -56,7 +56,6 @@ ancillaryData, settlementRecipient, finalFee, proposedPrice, settlementPrice
 
 - **DuckDB** - SQL analysis on CSV
 - **Python** - Data filtering & export
-- **USDC** - Token denomination (0x2791...)
 
 ## 📝 Notes
 
@@ -65,7 +64,3 @@ ancillaryData, settlementRecipient, finalFee, proposedPrice, settlementPrice
 - Filtering: Regex-based on price patterns & crypto keywords
 - Settlement rate: **99.96%** (7,756 of 7,759)
 - Dispute rate: **0.35%** (27 disputes)
-
----
-
-**Ready to initialize as git repo.**

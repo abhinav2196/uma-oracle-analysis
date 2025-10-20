@@ -1,8 +1,15 @@
 import pandas as pd
 import re
+import os
+from pathlib import Path
+
+# Get the project root directory (parent of data-transformation-scripts)
+script_dir = Path(__file__).parent
+project_root = script_dir.parent
 
 print("Loading CSV...")
-df = pd.read_csv('/Users/abhinavtaneja/Developer/uma-research/uma_sep_all_text_full.csv')
+input_csv = project_root / 'data-dumps' / 'uma_sep_all_text_full.csv'
+df = pd.read_csv(input_csv)
 
 print(f"Total rows in CSV: {len(df)}")
 
@@ -41,7 +48,7 @@ print(f"Filtered rows: {len(filtered_df)}")
 filtered_df = filtered_df.drop('is_price_prediction', axis=1)
 
 # Save to new CSV
-output_path = '/Users/abhinavtaneja/Developer/uma-research/uma_sep_all_FILTERED_PRICE_PREDICTIONS.csv'
+output_path = project_root / 'data-dumps' / 'uma_sep_all_FILTERED_PRICE_PREDICTIONS.csv'
 filtered_df.to_csv(output_path, index=False)
 
 print(f"\n✅ Saved to: {output_path}")
