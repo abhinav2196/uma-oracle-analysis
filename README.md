@@ -9,7 +9,7 @@ Crypto price prediction proposals from UMA Optimistic Oracle v2 (September 2025)
 | `data-dumps/uma_sep_all_FILTERED_PRICE_PREDICTIONS.csv` | **7,759 filtered proposals** with crypto price predictions |
 | `sql-queries/CRYPTO_PRICE_FILTER.sql` | SQL queries (DuckDB) to reproduce the filtering |
 | `docs/UMA_ANALYSIS_REPORT.md` | Complete analysis & findings |
-| `docs/QUERIES_EXECUTED.md` | **All queries run with Q&A format** (executive-ready) |
+| `docs/QUERIES_EXECUTED.md` | **All queries run with Q&A format** |
 | `data-transformation-scripts/filter_and_export.py` | Python script to regenerate filtered CSV |
 
 ## 🔍 What's in the Data
@@ -43,7 +43,7 @@ python3 data-transformation-scripts/filter_and_export.py
 
 ### Option 3: Read Analysis
 - `docs/UMA_ANALYSIS_REPORT.md` - Complete findings and business insights
-- `docs/QUERIES_EXECUTED.md` - All queries with Q&A format (CEO-ready)
+- `docs/QUERIES_EXECUTED.md` - All queries with Q&A format
 
 ## 📊 CSV Schema
 
