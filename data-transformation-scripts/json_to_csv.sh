@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
-IN="${1:-uma_sep_all_text.json}"
-OUT="${2:-uma_sep_all_text_full.csv}"
+
+# Get script directory and set paths relative to project root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+
+IN="${1:-${PROJECT_ROOT}/data-dumps/uma_sep_all_text.json}"
+OUT="${2:-${PROJECT_ROOT}/data-dumps/uma_sep_all_text_full.csv}"
 
 jq -r '
   ([

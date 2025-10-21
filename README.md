@@ -28,6 +28,23 @@ Crypto price prediction proposals from UMA Optimistic Oracle v2 (September 2025)
 
 ## 🚀 How to Use
 
+### Option 0: Regenerate Data from Scratch (Optional)
+
+If you want to re-fetch the raw data:
+
+```bash
+# Fetch from The Graph API
+cd data-transformation-scripts
+./uma_sept_human_readable_text.sh    # → data-dumps/uma_sep_all_text.json
+
+# Convert to CSV
+./json_to_csv.sh                      # → data-dumps/uma_sep_all_text_full.csv
+
+# Filter for crypto predictions
+cd ..
+python3 data-transformation-scripts/filter_and_export.py  # → filtered CSV
+```
+
 ### Option 1: Query with SQL (DuckDB)
 ```bash
 duckdb

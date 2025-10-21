@@ -10,9 +10,24 @@
 
 ### Question: How do we fetch all UMA oracle proposals for September 2025?
 
-**Method:** GraphQL query to The Graph API  
+**Process Overview:**
+1. **Fetch data from The Graph** → JSON file with hex-encoded ancillaryData
+2. **Convert JSON to CSV** → Human-readable CSV with decoded text
+
+---
+
+### Step 1: Fetch Data from The Graph API
+
 **Script:** `data-transformation-scripts/uma_sept_human_readable_text.sh`
 
+This bash script:
+- Queries The Graph's UMA Optimistic Oracle v2 subgraph
+- Filters for "YES_OR_NO_QUERY" proposals in September 2025
+- Fetches data in paginated batches (200 records per page)
+- Decodes hex `ancillaryData` to human-readable UTF-8 text
+- Outputs: `data-dumps/uma_sep_all_text.json`
+
+**GraphQL Query Used:**
 ```graphql
 {
   optimisticPriceRequests(
@@ -43,7 +58,33 @@
 }
 ```
 
-**Result:** 14,448 proposals → `data-dumps/uma_sep_all_text_full.csv`
+**Run Command:**
+```bash
+cd data-transformation-scripts
+./uma_sept_human_readable_text.sh
+```
+
+**Result:** `data-dumps/uma_sep_all_text.json` (14,448 proposals)
+
+---
+
+### Step 2: Convert JSON to CSV
+
+**Script:** `data-transformation-scripts/json_to_csv.sh`
+
+This bash script:
+- Takes the JSON output from step 1
+- Parses and flattens the structure using `jq`
+- Outputs structured CSV with proper headers
+- Cleans ancillaryData (removes newlines, preserves text)
+
+**Run Command:**
+```bash
+cd data-transformation-scripts
+./json_to_csv.sh
+```
+
+**Result:** `data-dumps/uma_sep_all_text_full.csv` (14,448 proposals with all fields)
 
 ---
 
@@ -276,25 +317,40 @@ FROM crypto_predictions;
 
 ## Reproducibility
 
-To reproduce this analysis:
+To reproduce this analysis from scratch:
 
-1. **Fetch data:**
-   ```bash
-   ./data-transformation-scripts/uma_sept_human_readable_text.sh
-   ./data-transformation-scripts/json_to_csv.sh uma_sep_all_text.json
-   ```
+### Full Pipeline (Data Collection → Analysis)
 
-2. **Filter for crypto:**
-   ```bash
-   python3 data-transformation-scripts/filter_and_export.py
-   ```
+```bash
+# Step 1: Fetch raw data from The Graph API
+cd data-transformation-scripts
+./uma_sept_human_readable_text.sh
+# Output: data-dumps/uma_sep_all_text.json (14,448 proposals)
 
-3. **Run analysis:**
-   ```bash
-   duckdb
-   CREATE TABLE proposals AS SELECT * FROM read_csv_auto('data-dumps/uma_sep_all_FILTERED_PRICE_PREDICTIONS.csv');
-   -- Copy-paste queries from sql-queries/CRYPTO_PRICE_FILTER.sql
-   ```
+# Step 2: Convert JSON to CSV
+./json_to_csv.sh
+# Output: data-dumps/uma_sep_all_text_full.csv (14,448 rows)
+
+# Step 3: Filter for crypto price predictions
+cd ..
+python3 data-transformation-scripts/filter_and_export.py
+# Output: data-dumps/uma_sep_all_FILTERED_PRICE_PREDICTIONS.csv (7,759 rows)
+
+# Step 4: Run SQL analysis
+duckdb
+CREATE TABLE proposals AS SELECT * FROM read_csv_auto('data-dumps/uma_sep_all_FILTERED_PRICE_PREDICTIONS.csv');
+-- Copy-paste queries from sql-queries/CRYPTO_PRICE_FILTER.sql
+```
+
+### Quick Start (Using Provided Data)
+
+If you just want to run the analysis on existing filtered data:
+
+```bash
+duckdb
+CREATE TABLE proposals AS SELECT * FROM read_csv_auto('data-dumps/uma_sep_all_FILTERED_PRICE_PREDICTIONS.csv');
+-- Copy-paste queries from sql-queries/CRYPTO_PRICE_FILTER.sql
+```
 
 ---
 

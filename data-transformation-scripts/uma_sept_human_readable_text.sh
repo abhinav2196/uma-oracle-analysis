@@ -13,7 +13,11 @@ ENDPOINT="https://gateway.thegraph.com/api/${API_KEY}/subgraphs/id/${SUBGRAPH_ID
 FROM=1756684800     # 2025-09-01 00:00:00 UTC
 TO=1759276799       # 2025-09-30 23:59:59 UTC
 PAGE_SIZE=200
-OUT="uma_sep_all_text.json"
+
+# Get script directory and set output path relative to project root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+OUT="${PROJECT_ROOT}/data-dumps/uma_sep_all_text.json"
 # --------------------------------------------------------
 
 for bin in curl jq xxd iconv; do
