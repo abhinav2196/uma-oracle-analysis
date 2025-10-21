@@ -20,8 +20,8 @@ Crypto price prediction proposals from UMA Optimistic Oracle v2 (September 2025)
 - **XRP:** 1,900 proposals (24.5%)
 
 **Key Metrics:**
-- Total USDC Bond: ~$3.88 billion
-- Total USDC Rewards: ~$28.2 million
+- Total USDC Bond: ~$3.88 million
+- Total USDC Rewards: ~$28,166 (~$28.2k)
 - Settlement Rate: 99.96%
 - Dispute Rate: 0.35%
 

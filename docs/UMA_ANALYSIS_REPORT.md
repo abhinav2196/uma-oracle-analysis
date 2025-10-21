@@ -50,11 +50,11 @@ The broader objective was to understand how UMA's oracle is being utilized on-ch
 #### Asset Breakdown (7,759 Price Predictions)
 | Asset | Proposals | % Share | USDC Bond Value | USDC Reward Value |
 |-------|-----------|---------|-----------------|------------------|
-| **Bitcoin (BTC)** | 1,967 | 25.3% | ~$983M | ~$7.19M |
-| **Ethereum (ETH)** | 1,948 | 25.1% | ~$974M | ~$7.10M |
-| **Solana (SOL)** | 1,944 | 25.1% | ~$972M | ~$7.05M |
-| **Ripple (XRP)** | 1,900 | 24.5% | ~$950M | ~$6.83M |
-| **TOTAL** | **7,759** | **100%** | **~$3.88B** | **~$28.2M** |
+| **Bitcoin (BTC)** | 1,967 | 25.3% | ~$981k | ~$7,126 |
+| **Ethereum (ETH)** | 1,948 | 25.1% | ~$973k | ~$7,070 |
+| **Solana (SOL)** | 1,944 | 25.1% | ~$973k | ~$7,070 |
+| **Ripple (XRP)** | 1,900 | 24.5% | ~$950k | ~$6,901 |
+| **TOTAL** | **7,759** | **100%** | **~$3.88M** | **~$28.2k** |
 
 **Key Finding:** Crypto price predictions are evenly distributed across 4 major assets, with no single asset dominating (each ~25%), indicating systematic price prediction trading rather than speculation on one asset.
 
@@ -75,15 +75,15 @@ The broader objective was to understand how UMA's oracle is being utilized on-ch
   - **Observation:** Dispute activity concentrated in 2 professional arbitrageurs
 
 #### Financial Economics (7,759 Price Predictions)
-- **Total Bond Value:** ~3.88 billion (smallest USDC unit = 3,877,750,000,000)
-  - **Actual USD Value:** ~$3.88 billion USDC locked as collateral
-  - **Average per proposal:** ~$499.8M per proposal (highly standardized)
-  - **Min/Max:** Consistent ~$500M bonds across all proposals
+- **Total Bond Value:** 3,877,750,000,000 (smallest USDC unit)
+  - **Actual USD Value:** ~$3.88 million USDC locked as collateral
+  - **Average per proposal:** ~$500 USDC per proposal (highly standardized)
+  - **Min/Max:** Consistent $250-$500 USDC bonds across all proposals
 
-- **Total Reward Value:** ~28.2 million (smallest USDC unit = 28,166,000,000)
-  - **Actual USD Value:** ~$28.2 million USDC in incentives
-  - **Average per proposal:** ~$3.63M per proposal (standardized)
-  - **Min/Max:** Consistent ~$3-5M rewards across proposals
+- **Total Reward Value:** 28,166,000,000 (smallest USDC unit)
+  - **Actual USD Value:** ~$28,166 USDC in incentives
+  - **Average per proposal:** ~$3.63 USDC per proposal (standardized)
+  - **Min/Max:** Consistent $1-$5 USDC rewards across proposals
 
 - **Reward/Bond Ratio:** **0.73%**
   - Indicates conservative incentive structure
@@ -109,10 +109,10 @@ Two addresses generated over 90% of all proposals:
 These findings indicate that most UMA Optimistic Oracle activity originates from Polymarket, rather than from individual users.
 
 ### 4. Bond and Reward Volumes (All Proposals - Unfiltered)
-- **Total bond value:** ~6.85M USDC (smallest unit)
-  - **Actual USD:** ~$6.85 billion USDC
-- **Total rewards distributed:** ~57.6M USDC (smallest unit)
-  - **Actual USD:** ~$57.6 million USDC
+- **Total bond value:** 6,850,000,000,000 USDC (smallest unit)
+  - **Actual USD:** ~$6.85 million USDC
+- **Total rewards distributed:** 57,600,000,000 USDC (smallest unit)
+  - **Actual USD:** ~$57,600 USDC (~$57.6k)
 - **Currency dominance:** Over 99% in USDC (token: `0x2791bca1f2de4661ed88a30c99a7a9449aa84174`)
 
 **Note on Denominations:** All bond and reward values are stored in USDC's smallest unit (6 decimals). The values shown above represent actual USDC amounts when divided by 1,000,000.
@@ -132,13 +132,13 @@ Most ancillary data strings referenced crypto asset prices (BTC, ETH, XRP, etc.)
    - 53.7% of these are crypto asset price predictions
 
 2. **Crypto Price Predictions represent a substantial sub-market**
-   - 7,759 proposals with ~$3.88B in bond collateral
+   - 7,759 proposals with ~$3.88M in bond collateral
    - 99.96% settlement rate indicates high proposal quality
    - Only 0.35% dispute rate (27 disputes total)
 
 3. **Market is highly concentrated but professional**
    - Single proposer controls 76.8% of price predictions
-   - Proposers use standardized $500M bonds, suggesting protocol-enforced minimums
+   - Proposers use standardized $500 USDC bonds, suggesting protocol-enforced minimums
    - Conservative 0.73% reward-to-bond ratio indicates confidence-driven participation
 
 4. **Four major crypto assets drive prediction volume**
@@ -189,7 +189,7 @@ All filtering and aggregation performed via DuckDB SQL:
 ### USDC Denomination Note
 All bond and reward values are recorded in USDC's smallest unit (1e-6 USDC = 1 unit). To convert to actual USD amounts:
 - Divide by 1,000,000 (or 1e6)
-- Example: 3,877,750,000,000 (smallest units) ÷ 1,000,000 = $3,877.75M = $3.88B
+- Example: 3,877,750,000,000 (smallest units) ÷ 1,000,000 = $3,877,750 = $3.88M
 
 ---
 
