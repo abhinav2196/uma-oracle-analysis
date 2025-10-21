@@ -50,11 +50,11 @@ The broader objective was to understand how UMA's oracle is being utilized on-ch
 #### Asset Breakdown (7,759 Price Predictions)
 | Asset | Proposals | % Share | USDC Bond Value | USDC Reward Value |
 |-------|-----------|---------|-----------------|------------------|
-| **Bitcoin (BTC)** | 1,967 | 25.3% | ~$981k | ~$7,126 |
-| **Ethereum (ETH)** | 1,948 | 25.1% | ~$973k | ~$7,070 |
-| **Solana (SOL)** | 1,944 | 25.1% | ~$973k | ~$7,070 |
-| **Ripple (XRP)** | 1,900 | 24.5% | ~$950k | ~$6,901 |
-| **TOTAL** | **7,759** | **100%** | **~$3.88M** | **~$28.2k** |
+| **Bitcoin (BTC)** | 1,967 | 25.3% | $981k | $7,126 |
+| **Ethereum (ETH)** | 1,948 | 25.1% | $973k | $7,070 |
+| **Solana (SOL)** | 1,944 | 25.1% | $973k | $7,070 |
+| **Ripple (XRP)** | 1,900 | 24.5% | $950k | $6,901 |
+| **TOTAL** | **7,759** | **100%** | **$3.88M** | **$28.2k** |
 
 **Key Finding:** Crypto price predictions are evenly distributed across 4 major assets, with no single asset dominating (each ~25%), indicating systematic price prediction trading rather than speculation on one asset.
 
@@ -76,13 +76,13 @@ The broader objective was to understand how UMA's oracle is being utilized on-ch
 
 #### Financial Economics (7,759 Price Predictions)
 - **Total Bond Value:** 3,877,750,000,000 (smallest USDC unit)
-  - **Actual USD Value:** ~$3.88 million USDC locked as collateral
-  - **Average per proposal:** ~$500 USDC per proposal (highly standardized)
+  - **Actual USD Value:** $3.88 million USDC locked as collateral
+  - **Average per proposal:** $500 USDC per proposal (highly standardized)
   - **Min/Max:** Consistent $250-$500 USDC bonds across all proposals
 
 - **Total Reward Value:** 28,166,000,000 (smallest USDC unit)
-  - **Actual USD Value:** ~$28,166 USDC in incentives
-  - **Average per proposal:** ~$3.63 USDC per proposal (standardized)
+  - **Actual USD Value:** $28,166 USDC in incentives
+  - **Average per proposal:** $3.63 USDC per proposal (standardized)
   - **Min/Max:** Consistent $1-$5 USDC rewards across proposals
 
 - **Reward/Bond Ratio:** **0.73%**
@@ -110,9 +110,9 @@ These findings indicate that most UMA Optimistic Oracle activity originates from
 
 ### 4. Bond and Reward Volumes (All Proposals - Unfiltered)
 - **Total bond value:** 6,850,000,000,000 USDC (smallest unit)
-  - **Actual USD:** ~$6.85 million USDC
+  - **Actual USD:** $6.85 million USDC
 - **Total rewards distributed:** 57,600,000,000 USDC (smallest unit)
-  - **Actual USD:** ~$57,600 USDC (~$57.6k)
+  - **Actual USD:** $57,600 USDC ($57.6k)
 - **Currency dominance:** Over 99% in USDC (token: `0x2791bca1f2de4661ed88a30c99a7a9449aa84174`)
 
 **Note on Denominations:** All bond and reward values are stored in USDC's smallest unit (6 decimals). The values shown above represent actual USDC amounts when divided by 1,000,000.
@@ -132,7 +132,7 @@ Most ancillary data strings referenced crypto asset prices (BTC, ETH, XRP, etc.)
    - 53.7% of these are crypto asset price predictions
 
 2. **Crypto Price Predictions represent a substantial sub-market**
-   - 7,759 proposals with ~$3.88M in bond collateral
+   - 7,759 proposals with $3.88M in bond collateral
    - 99.96% settlement rate indicates high proposal quality
    - Only 0.35% dispute rate (27 disputes total)
 
