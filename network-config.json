@@ -1,0 +1,40 @@
+{
+  "networks": {
+    "polygon": {
+      "name": "Polygon",
+      "subgraph_id": "BpK8AdxzBUVnFN3ZCt2u3PgnKRNnS4WbM6MUETZ6b3yK",
+      "chain_id": 137,
+      "description": "Polygon PoS - Low cost L2 solution"
+    },
+    "ethereum": {
+      "name": "Ethereum Mainnet",
+      "subgraph_id": "REPLACE_WITH_ETHEREUM_SUBGRAPH_ID",
+      "chain_id": 1,
+      "description": "Ethereum Mainnet - Primary network"
+    },
+    "arbitrum": {
+      "name": "Arbitrum One",
+      "subgraph_id": "REPLACE_WITH_ARBITRUM_SUBGRAPH_ID",
+      "chain_id": 42161,
+      "description": "Arbitrum - Optimistic Rollup L2"
+    },
+    "optimism": {
+      "name": "Optimism",
+      "subgraph_id": "REPLACE_WITH_OPTIMISM_SUBGRAPH_ID",
+      "chain_id": 10,
+      "description": "Optimism - Optimistic Rollup L2"
+    }
+  },
+  "time_periods": {
+    "september_2025": {
+      "from": 1756684800,
+      "to": 1759276799,
+      "description": "Sep 1-30, 2025"
+    }
+  },
+  "the_graph": {
+    "endpoint_template": "https://gateway.thegraph.com/api/${API_KEY}/subgraphs/id/${SUBGRAPH_ID}",
+    "api_key_env_var": "THE_GRAPH_API_KEY"
+  }
+}
+
