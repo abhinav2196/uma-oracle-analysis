@@ -6,13 +6,17 @@ Crypto price prediction proposals from UMA Optimistic Oracle v2 (September 2025)
 
 | File | Purpose |
 |------|---------|
-| `data-dumps/uma_sep_all_FILTERED_PRICE_PREDICTIONS.csv` | **7,759 filtered proposals** with crypto price predictions |
+| `data-dumps/polygon/uma_september_2025_crypto_price_predictions.csv` | **7,759 filtered proposals** (Polygon, Sep 2025) |
 | `sql-queries/CRYPTO_PRICE_FILTER.sql` | SQL queries (DuckDB) to reproduce the filtering |
 | `docs/UMA_ANALYSIS_REPORT.md` | Complete analysis & findings |
-| `docs/QUERIES_EXECUTED.md` | **All queries run with Q&A format** |
-| `data-transformation-scripts/filter_and_export.py` | Python script to regenerate filtered CSV |
+| `docs/QUERIES_EXECUTED.md` | All queries run with Q&A format |
+| `docs/CEO_FAQ.md` | **Answers to CEO questions** |
+| `docs/MULTI_NETWORK_SETUP.md` | Multi-network analysis setup guide |
+| `network-config.json` | Network configuration (Polygon, Ethereum, Arbitrum, Optimism) |
 
 ## 🔍 What's in the Data
+
+**Current Scope:** Polygon Network, September 2025
 
 **Filtered Dataset (7,759 proposals):**
 - **BTC:** 1,967 proposals (25.3%)
@@ -26,29 +30,36 @@ Crypto price prediction proposals from UMA Optimistic Oracle v2 (September 2025)
 - Settlement Rate: 99.96%
 - Dispute Rate: 0.35%
 
+**Multi-Network Support:** Ready to extend to Ethereum, Arbitrum, Optimism (see `docs/MULTI_NETWORK_SETUP.md`)
+
 ## 🚀 How to Use
 
-### Option 0: Regenerate Data from Scratch (Optional)
+### Option 0: Fetch Data from Other Networks (New!)
 
-If you want to re-fetch the raw data:
+Multi-network support is now available:
 
 ```bash
-# Fetch from The Graph API
+# Set up API key (see docs/API_KEY_SETUP.md)
+export THE_GRAPH_API_KEY='your_key'
+
+# Fetch Polygon data (already have this)
 cd data-transformation-scripts
-./uma_sept_human_readable_text.sh    # → data-dumps/uma_sep_all_text.json
+./fetch_uma_data.sh polygon september_2025
+./convert_json_to_csv.sh polygon september_2025
+python3 filter_crypto_predictions.py polygon september_2025
 
-# Convert to CSV
-./json_to_csv.sh                      # → data-dumps/uma_sep_all_text_full.csv
-
-# Filter for crypto predictions
-cd ..
-python3 data-transformation-scripts/filter_and_export.py  # → filtered CSV
+# Fetch Ethereum data (configure subgraph ID first)
+./fetch_uma_data.sh ethereum september_2025
+# ... then convert and filter
 ```
+
+See `docs/MULTI_NETWORK_SETUP.md` for complete guide.
 
 ### Option 1: Query with SQL (DuckDB)
 ```bash
 duckdb
-CREATE TABLE proposals AS SELECT * FROM read_csv_auto('data-dumps/uma_sep_all_FILTERED_PRICE_PREDICTIONS.csv');
+# Polygon September 2025
+CREATE TABLE proposals AS SELECT * FROM read_csv_auto('data-dumps/polygon/uma_september_2025_crypto_price_predictions.csv');
 -- Copy-paste queries from sql-queries/CRYPTO_PRICE_FILTER.sql
 ```
 
@@ -61,6 +72,8 @@ python3 data-transformation-scripts/filter_and_export.py
 ### Option 3: Read Analysis
 - `docs/UMA_ANALYSIS_REPORT.md` - Complete findings and business insights
 - `docs/QUERIES_EXECUTED.md` - All queries with Q&A format
+- `docs/CEO_FAQ.md` - **Answers to leadership questions**
+- `docs/MULTI_NETWORK_SETUP.md` - Multi-chain analysis guide
 
 ## 📊 CSV Schema
 
