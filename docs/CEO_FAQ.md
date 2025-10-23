@@ -69,14 +69,24 @@ However, there's a potential issue: Some non-price queries might have slipped th
 
 ## Q2: Have we only analyzed Polygon?
 
-**Answer:** Yes, currently only Polygon network.
+**Answer:** Yes, currently only Polygon network.  
+**Update:** We discovered we analyzed only **44% of Polygon crypto predictions** (7,759 of 17,830 total).
 
 ### Why Only Polygon?
 
 Our data source (The Graph subgraph) was specifically for:
 - **Network:** Polygon
 - **Contract:** UMA Optimistic Oracle v2
-- **Subgraph ID:** `BpK8AdxzBUVnFN3ZCt2u3PgnKRNnS4WbM6MUETZ6b3yK`
+- **Subgraph ID:** `BpK8AdxzBUVnFN3ZCt2u3PgnKRNnS4WbM6MUETZ6b3yK` (OLD)
+
+**⚠️ Important Discovery:** 
+We found a second Polygon subgraph (`CFjw...`) tracking different Polymarket adapters.
+- OLD subgraph: 7,759 crypto predictions (what we analyzed)
+- NEW subgraph: 10,071 crypto predictions (missed in original analysis)
+- **Combined:** 17,830 crypto predictions total
+- **Zero overlap:** Different Polymarket adapter contracts
+
+See `docs/SUBGRAPH_INVESTIGATION.md` for detailed investigation.
 
 ### Where Else Does UMA OOv2 Operate?
 
