@@ -6,13 +6,15 @@ Crypto price prediction proposals from UMA Optimistic Oracle v2 (September 2025)
 
 | File | Purpose |
 |------|---------|
-| `data-dumps/polygon/uma_september_2025_crypto_price_predictions.csv` | **7,759 filtered proposals** (Polygon, Sep 2025) |
-| `sql-queries/CRYPTO_PRICE_FILTER.sql` | SQL queries (DuckDB) to reproduce the filtering |
-| `docs/UMA_ANALYSIS_REPORT.md` | Complete analysis & findings |
-| `docs/QUERIES_EXECUTED.md` | All queries run with Q&A format |
-| `docs/CEO_FAQ.md` | **Answers to CEO questions** |
-| `docs/MULTI_NETWORK_SETUP.md` | Multi-network analysis setup guide |
-| `network-config.json` | Network configuration (Polygon, Ethereum, Arbitrum, Optimism) |
+| `docs/UMA_ANALYSIS_REPORT.md` | Original analysis (7,759 Polygon predictions) |
+| `docs/CROSS_NETWORK_ANALYSIS.md` | **Multi-network comparison** (Polygon/Ethereum/Base) |
+| `docs/DISCOVERY_STORY.md` | **How we found 10k additional Polygon predictions** |
+| `docs/ETHEREUM_FINDINGS.md` | Ethereum V3 analysis (governance/disputes) |
+| `docs/BASE_FINDINGS.md` | Base V3 analysis (minimal activity) |
+| `docs/CEO_FAQ.md` | Answers to CEO questions |
+| `docs/QUERIES_EXECUTED.md` | All queries with Q&A format |
+| `docs/SUBGRAPH_INVESTIGATION.md` | Technical investigation details |
+| `network-config.json` | Verified network configuration |
 
 ## 🔍 What's in the Data
 
@@ -42,7 +44,18 @@ Crypto price prediction proposals from UMA Optimistic Oracle v2 (September 2025)
 
 📖 **Read the full story:** `docs/DISCOVERY_STORY.md`
 
-**Multi-Network Support:** Ready for Ethereum & Base (see `docs/MULTI_NETWORK_SETUP.md`)
+## 🌐 All Networks Analyzed
+
+| Network | Oracle | Total Assertions | Crypto Predictions | Status |
+|---------|--------|------------------|--------------------|--------|
+| **Polygon** | V2 | 30,014 | **17,830** (99.98%) | ✅ Complete |
+| **Ethereum** | V3 | 1,025 | 0 (0%) | ✅ Complete |
+| **Base** | V3 | 49 | 3 (0.02%) | ✅ Complete |
+| **TOTAL** | - | **31,088** | **17,833** | ✅ |
+
+**Key Insight:** Polygon V2 is the crypto price prediction hub. Ethereum/Base V3 serve different purposes (governance/disputes).
+
+📊 **See full analysis:** `docs/CROSS_NETWORK_ANALYSIS.md`
 
 ## 🚀 How to Use
 
