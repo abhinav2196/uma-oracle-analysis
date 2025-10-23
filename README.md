@@ -18,10 +18,11 @@ Crypto price prediction proposals from UMA Optimistic Oracle v2 (September 2025)
 
 **Current Scope:** Polygon Network, September 2025
 
-**Filtered Dataset (7,759 proposals):**
+### Original Analysis (Published)
+**Filtered Dataset (7,759 proposals from Polymarket Adapter 0x2f5e...):**
 - **BTC:** 1,967 proposals (25.3%)
 - **ETH:** 1,948 proposals (25.1%)
-- **SOL:** 1,944 proposals (25.1%)
+- **SOL:** 1,938 proposals (25.0%)
 - **XRP:** 1,900 proposals (24.5%)
 
 **Key Metrics:**
@@ -30,7 +31,18 @@ Crypto price prediction proposals from UMA Optimistic Oracle v2 (September 2025)
 - Settlement Rate: 99.96%
 - Dispute Rate: 0.35%
 
-**Multi-Network Support:** Ready to extend to Ethereum, Arbitrum, Optimism (see `docs/MULTI_NETWORK_SETUP.md`)
+### 🔍 Discovery Update (Oct 23, 2025)
+
+**We found a second Polygon subgraph tracking a different Polymarket adapter!**
+
+**Additional Dataset (10,071 proposals from Polymarket Adapter 0x6507...):**
+- **BTC:** 2,517 | **ETH:** 2,520 | **SOL:** 2,522 | **XRP:** 2,510
+
+**Combined Polygon Total: 17,830 crypto predictions** (2.3x original count)
+
+📖 **Read the full story:** `docs/DISCOVERY_STORY.md`
+
+**Multi-Network Support:** Ready for Ethereum & Base (see `docs/MULTI_NETWORK_SETUP.md`)
 
 ## 🚀 How to Use
 
@@ -70,9 +82,17 @@ python3 data-transformation-scripts/filter_and_export.py
 *(Requires original CSV - paths are configured in script)*
 
 ### Option 3: Read Analysis
-- `docs/UMA_ANALYSIS_REPORT.md` - Complete findings and business insights
+
+**Original Analysis:**
+- `docs/UMA_ANALYSIS_REPORT.md` - Complete findings (7,759 predictions from one Polymarket adapter)
 - `docs/QUERIES_EXECUTED.md` - All queries with Q&A format
-- `docs/CEO_FAQ.md` - **Answers to leadership questions**
+
+**Follow-Up Discovery:**
+- `docs/DISCOVERY_STORY.md` - **How we found 10,071 additional predictions** (must-read!)
+- `docs/SUBGRAPH_INVESTIGATION.md` - Technical investigation details
+
+**Leadership Resources:**
+- `docs/CEO_FAQ.md` - Answers to all CEO questions
 - `docs/MULTI_NETWORK_SETUP.md` - Multi-chain analysis guide
 
 ## 📊 CSV Schema
