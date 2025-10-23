@@ -104,19 +104,20 @@ def main():
         if not isinstance(text, str):
             return 'OTHER'
         lower_text = text.lower()
-        if 'bitcoin' in lower_text or 'btc' in lower_text:
+        # Use word boundaries to avoid false matches
+        if re.search(r'\bbitcoin\b|\bbtc\b', lower_text):
             return 'BTC'
-        elif 'ethereum' in lower_text or 'eth' in lower_text:
+        elif re.search(r'\bethereum\b|\beth\b', lower_text):
             return 'ETH'
-        elif 'solana' in lower_text or 'sol' in lower_text:
-            return 'SOL'
-        elif 'xrp' in lower_text:
+        elif re.search(r'\bxrp\b|\bripple\b', lower_text):
             return 'XRP'
-        elif 'cardano' in lower_text or 'ada' in lower_text:
+        elif re.search(r'\bsolana\b|\bsol\b', lower_text):
+            return 'SOL'
+        elif re.search(r'\bcardano\b|\bada\b', lower_text):
             return 'ADA'
-        elif 'litecoin' in lower_text or 'ltc' in lower_text:
+        elif re.search(r'\blitecoin\b|\bltc\b', lower_text):
             return 'LTC'
-        elif 'dogecoin' in lower_text or 'doge' in lower_text:
+        elif re.search(r'\bdogecoin\b|\bdoge\b', lower_text):
             return 'DOGE'
         else:
             return 'OTHER'

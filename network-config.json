@@ -1,22 +1,14 @@
 {
   "networks": {
-    "polygon_old": {
-      "name": "Polygon (Old Subgraph)",
-      "subgraph_id": "BpK8AdxzBUVnFN3ZCt2u3PgnKRNnS4WbM6MUETZ6b3yK",
-      "oracle_version": "v2",
-      "chain_id": 137,
-      "description": "Polygon PoS - Original subgraph (returned 14,448 records for Sept)",
-      "contract_address": "0x2C0367a9DB231dDeBd88a94b4f6461a6e47C58B1",
-      "note": "Previously used - need to compare with new subgraph"
-    },
-    "polygon_new": {
-      "name": "Polygon (New Subgraph)",
+    "polygon": {
+      "name": "Polygon",
       "subgraph_id": "CFjwxrBWKLnWSfCvP1aiA3F252H3cD3uyFUvvMSpEork",
+      "subgraph_id_old": "BpK8AdxzBUVnFN3ZCt2u3PgnKRNnS4WbM6MUETZ6b3yK",
       "oracle_version": "v2",
       "chain_id": 137,
-      "description": "Polygon PoS - Found via contract search",
+      "description": "Polygon PoS - Optimistic Oracle V2",
       "contract_address": "0x2C0367a9DB231dDeBd88a94b4f6461a6e47C58B1",
-      "note": "Latest timestamp appears newer - need to verify total record count"
+      "note": "VERIFIED: New ID returns 15,566 records vs old ID 14,448 (7.7% more complete). Use new ID."
     },
     "ethereum": {
       "name": "Ethereum Mainnet",

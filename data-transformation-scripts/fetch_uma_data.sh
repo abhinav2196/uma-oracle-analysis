@@ -19,11 +19,22 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 CONFIG_FILE="${PROJECT_ROOT}/network-config.json"
 
+# Auto-load .env file if it exists
+if [ -f "${PROJECT_ROOT}/.env" ]; then
+  set -a
+  source "${PROJECT_ROOT}/.env"
+  set +a
+  echo "✓ Loaded API key from .env"
+fi
+
 # Check for API key
 if [ -z "${THE_GRAPH_API_KEY:-}" ]; then
-  echo "❌ ERROR: THE_GRAPH_API_KEY environment variable not set"
+  echo "❌ ERROR: THE_GRAPH_API_KEY not found"
   echo ""
-  echo "Please set it:"
+  echo "Option 1: Create .env file in project root:"
+  echo "  THE_GRAPH_API_KEY=your_api_key_here"
+  echo ""
+  echo "Option 2: Export as environment variable:"
   echo "  export THE_GRAPH_API_KEY='your_api_key_here'"
   echo ""
   echo "Get your API key from: https://thegraph.com/studio/"
