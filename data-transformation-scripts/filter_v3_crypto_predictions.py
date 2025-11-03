@@ -29,11 +29,17 @@ def is_crypto_price_prediction(text):
         r'\bdogecoin\b', r'\bdoge\b',
     ]
     
-    # Price patterns
+    # Price patterns (expanded for V3 assertion formats)
     price_patterns = [
         r'will the price of',
         r'price.*between.*\$',
         r'price.*(?:less than|greater than|above|below)',
+        r'closing price.*(?:for|of)',           # "closing price for BTC/USD"
+        r'traded.*(?:higher|lower|above|below)',  # "ETH traded higher than"
+        r'(?:btc|eth|xrp|sol)/usd.*(?:pair|price)',  # "BTC/USD pair"
+        r'(?:btc|eth|xrp|sol).*trades.*(?:above|below)',  # "BTC trades above"
+        r'price.*coinbase',                      # "price on Coinbase"
+        r'(?:btc|eth|xrp|sol).*(?:is|be).*(?:between|less|greater)',  # "BTC is between"
     ]
     
     has_crypto = any(re.search(pattern, lower_text, re.IGNORECASE) for pattern in crypto_patterns)
