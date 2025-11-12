@@ -18,6 +18,16 @@
       "description": "Ethereum Mainnet - Optimistic Oracle V3",
       "contract_address": "0xfb55F43fB9F48F63f9269DB7Dde3BbBe1ebDC0dE"
     },
+    "ethereum_v1_v2": {
+      "name": "Ethereum Mainnet V1/V2",
+      "subgraph_id": "41LCrgtCNBQyDiVVyZEuPxbvkBH9BxxLU3nEZst77V8o",
+      "oracle_version": "v1_v2",
+      "chain_id": 1,
+      "description": "Ethereum Mainnet - Optimistic Oracle V1 and V2 (combined subgraph)",
+      "contract_address_v1": "0xeE3Afe347D5C74317041E2618C49534dAf887c24",
+      "contract_address_v2": "0xA0Ae6609447e57a42c51B50EAe921D701823FFAe",
+      "note": "Combined V1/V2 oracle - includes price identifiers like DEXTFUSD (V1)"
+    },
     "base": {
       "name": "Base",
       "subgraph_id": "2Q4i8YgVZd6bAmLyDxXgrKPL2B6QwySiEUqbTyQ4vm4C",

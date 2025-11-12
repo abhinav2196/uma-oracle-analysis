@@ -14,6 +14,10 @@ Crypto price prediction proposals from UMA Optimistic Oracle v2 (September 2025)
 | `docs/CEO_FAQ.md` | Answers to CEO questions |
 | `docs/QUERIES_EXECUTED.md` | All queries with Q&A format |
 | `docs/SUBGRAPH_INVESTIGATION.md` | Technical investigation details |
+| `docs/SUBGRAPH_VALIDATION.md` | **First-principles validation of all subgraphs** |
+| `docs/SUBGRAPH_QUICK_REFERENCE.md` | **Quick reference: Oracle types & subgraph IDs** |
+| `docs/NETWORK_DISCOVERY.md` | 🚨 **L2 oracle deployments found (not yet configured)** |
+| `FIND_SUBGRAPH_IDS.md` | **How to find missing subgraph IDs** |
 | `network-config.json` | Verified network configuration |
 
 ## 🔍 What's in the Data
@@ -52,6 +56,8 @@ Crypto price prediction proposals from UMA Optimistic Oracle v2 (September 2025)
 | **Ethereum** | V3 | 1,025 | 0 (0%) | ✅ Complete |
 | **Base** | V3 | 49 | 3 (0.02%) | ✅ Complete |
 | **TOTAL** | - | **31,088** | **17,833** | ✅ |
+
+⚠️ **Scope Note:** Additional V2 oracle activity discovered on Base, Ethereum, Optimism, Arbitrum, and Blast but not yet included. See `docs/NETWORK_DISCOVERY.md`.
 
 **Key Insight:** Polygon V2 is the crypto price prediction hub. Ethereum/Base V3 serve different purposes (governance/disputes).
 
