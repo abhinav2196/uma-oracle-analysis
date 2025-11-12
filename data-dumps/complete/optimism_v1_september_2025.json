@@ -1,0 +1,1 @@
+{"data":null,"errors":[{"message":"Type `OptimisticPriceRequest` has no field `settled`"},{"message":"Type `OptimisticPriceRequest` has no field `resolvedPrice`"},{"message":"Type `OptimisticPriceRequest` has no field `bond`"}]}

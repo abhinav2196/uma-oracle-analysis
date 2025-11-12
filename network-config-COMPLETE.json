@@ -1,0 +1,130 @@
+{
+  "networks": {
+    "polygon_v1": {
+      "name": "Polygon V1",
+      "subgraph_id": "2ytyuHupZX1r8WBKxkX9YZZ1GyaFUExzi7RQrKHq28Um",
+      "oracle_version": "v2",
+      "entity_type": "OptimisticPriceRequest",
+      "note": "Mislabeled as V1, actually uses V2 schema"
+    },
+    "polygon_v2_old": {
+      "name": "Polygon V2 (Old)",
+      "subgraph_id": "BpK8AdxzBUVnFN3ZCt2u3PgnKRNnS4WbM6MUETZ6b3yK",
+      "oracle_version": "v2",
+      "entity_type": "OptimisticPriceRequest"
+    },
+    "polygon_v2_new": {
+      "name": "Polygon V2 (New)",
+      "subgraph_id": "CFjwxrBWKLnWSfCvP1aiA3F252H3cD3uyFUvvMSpEork",
+      "oracle_version": "v2",
+      "entity_type": "OptimisticPriceRequest",
+      "note": "Enhanced schema with CustomBond and CustomLiveness"
+    },
+    "polygon_v3": {
+      "name": "Polygon V3",
+      "subgraph_id": "7KWbDhUE5Eqcfn3LXQtLbCfJLkNucnhzJLpi2jKhqNuf",
+      "oracle_version": "v3",
+      "entity_type": "Assertion"
+    },
+    "ethereum_v1": {
+      "name": "Ethereum V1",
+      "subgraph_id": "56QVFcqGEp1A6R7B3CqLi8qRvtaiVh1LJmkayorF4Czw",
+      "oracle_version": "v2",
+      "entity_type": "OptimisticPriceRequest",
+      "note": "Mislabeled as V1, actually uses V2 schema"
+    },
+    "ethereum_v2": {
+      "name": "Ethereum V2",
+      "subgraph_id": "GwhSFqXRgL9TPRCo2RdwveeJEYFtKQenGRGHJhXZJc2m",
+      "oracle_version": "v2",
+      "entity_type": "OptimisticPriceRequest"
+    },
+    "ethereum_v3": {
+      "name": "Ethereum V3",
+      "subgraph_id": "Bm3ytsa1YvcyFJahdfQQgscFQVCcMvoXujzkd3Cz6aof",
+      "oracle_version": "v3",
+      "entity_type": "Assertion"
+    },
+    "optimism_v1": {
+      "name": "Optimism V1",
+      "subgraph_id": "E5E5muqrrzhp8PhYwSLTGFx7xKrCqtNzqwMPiYGn1CkF",
+      "oracle_version": "v2",
+      "entity_type": "OptimisticPriceRequest",
+      "note": "Mislabeled as V1, actually uses V2 schema"
+    },
+    "optimism_v2": {
+      "name": "Optimism V2",
+      "subgraph_id": "DF7sPTV4tcdaMBmKjpmLWtH7Ad6pVX61EQKsgJBRLqd6",
+      "oracle_version": "v2",
+      "entity_type": "OptimisticPriceRequest"
+    },
+    "optimism_v3": {
+      "name": "Optimism V3",
+      "subgraph_id": "FyJQyV5TLNeowZrL6kLUTB9JNPyWQNCNXJoxJWGEtBcn",
+      "oracle_version": "v3",
+      "entity_type": "Assertion"
+    },
+    "arbitrum_v1": {
+      "name": "Arbitrum V1",
+      "subgraph_id": "8UmLeHVL3LDrvCrjhehVaj4oHEUVhTqeY2pdwS3RdSPV",
+      "oracle_version": "v2",
+      "entity_type": "OptimisticPriceRequest",
+      "note": "Mislabeled as V1, actually uses V2 schema"
+    },
+    "arbitrum_v2": {
+      "name": "Arbitrum V2",
+      "subgraph_id": "Ek5indViKvyNhCiBQNGAS1x7h35vQ3wKsPSfsLsKxpUm",
+      "oracle_version": "v2",
+      "entity_type": "OptimisticPriceRequest"
+    },
+    "arbitrum_v3": {
+      "name": "Arbitrum V3",
+      "subgraph_id": "9wpkM5tHgJBHYTzKEKk4tK8a7q6MimfS9QnW7Japa8hW",
+      "oracle_version": "v3",
+      "entity_type": "Assertion"
+    },
+    "blast_v1": {
+      "name": "Blast V1",
+      "subgraph_id": "C2cBAgmb47t9Q4nx32k6Jgqn3A8f4rxy87MPc9xm3t5Y",
+      "oracle_version": "v2",
+      "entity_type": "OptimisticPriceRequest",
+      "note": "Mislabeled as V1, actually uses V2 schema"
+    },
+    "blast_v2": {
+      "name": "Blast V2",
+      "subgraph_id": "EzV7USiaSsLRx8hdAYhZoMYjMoifLQ9M62aFCjqsQr5k",
+      "oracle_version": "v2",
+      "entity_type": "OptimisticPriceRequest"
+    },
+    "base_v2": {
+      "name": "Base V2",
+      "subgraph_id": "2GnL9JwU3bzQY3uRGnC3Nxc3vApnLDvqecq1sdTHio2D",
+      "oracle_version": "v2",
+      "entity_type": "OptimisticPriceRequest",
+      "note": "Using Version A (duplicate of DMWJanhFZn9SiqiLCJz5VEVGEgQbMvi45ggwzPyf5cDW)"
+    },
+    "base_v3": {
+      "name": "Base V3",
+      "subgraph_id": "2Q4i8YgVZd6bAmLyDxXgrKPL2B6QwySiEUqbTyQ4vm4C",
+      "oracle_version": "v3",
+      "entity_type": "Assertion"
+    }
+  },
+  "api_config": {
+    "api_key": "5ff06e4966bc3378b2bda95a5f7f98d3",
+    "gateway_url": "https://gateway.thegraph.com/api",
+    "september_2025_start": "1725148800",
+    "september_2025_end": "1727827200"
+  },
+  "notes": {
+    "total_subgraphs": 17,
+    "networks_covered": 6,
+    "v1_note": "No true V1 (PriceRequest) subgraphs found - all V1-labeled use V2 schema",
+    "base_v2_duplicate": "DMWJanhFZn9SiqiLCJz5VEVGEgQbMvi45ggwzPyf5cDW excluded (duplicate)",
+    "field_names": {
+      "v2_time_field": "time (for most), timestamp (for some)",
+      "v3_time_field": "assertionTimestamp"
+    }
+  }
+}
+
