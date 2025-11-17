@@ -4,8 +4,11 @@ import binascii
 import csv
 import json
 import os
+import sys
 from typing import Any, Dict, Iterable, List, Optional
 
+# Add parent directory to path for imports when run from repo root
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.lib.io_utils import output_paths
 
 

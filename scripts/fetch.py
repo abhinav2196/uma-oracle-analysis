@@ -5,11 +5,12 @@ import os
 import sys
 import time
 from typing import Dict, List, Optional, Tuple
-
-from scripts.lib.io_utils import ensure_dir, output_paths
-
 import urllib.request
 import urllib.error
+
+# Add parent directory to path for imports when run from repo root
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from scripts.lib.io_utils import ensure_dir, output_paths
 
 
 GRAPH_GATEWAY_TEMPLATE = "https://gateway.thegraph.com/api/{api_key}/subgraphs/id/{subgraph_id}"

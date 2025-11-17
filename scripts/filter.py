@@ -2,8 +2,11 @@
 import argparse
 import csv
 import os
+import sys
 from typing import Dict, List
 
+# Add parent directory to path for imports when run from repo root
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.lib.io_utils import output_paths
 
 
