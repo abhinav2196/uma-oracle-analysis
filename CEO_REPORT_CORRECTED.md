@@ -154,7 +154,7 @@ We analyzed UMA's Optimistic Oracle deployments across all major L2 networks and
 
 ---
 
-**Prepared by:** Blockchain Data Analysis Team  
+**Prepared by:** Abhinav Taneja 
 **Date:** November 12, 2025  
 **Technical Details:** See `AUGUST_2025_COMPLETE.md`
 

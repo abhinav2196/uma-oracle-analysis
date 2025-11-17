@@ -1,0 +1,14 @@
+# Exclude large data dumps from AI context
+# These files pollute the context window and reduce AI accuracy
+
+# Data dumps directory
+data-dumps/
+
+# Large data files
+*.csv
+*.json
+*.jsonl
+
+# Keep AI focused on code and documentation
+# Note: You can still explicitly read these files when needed
+

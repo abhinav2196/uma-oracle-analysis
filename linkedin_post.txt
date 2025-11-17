@@ -1,0 +1,40 @@
+Cursor (and other AI IDEs) lose accuracy when data dumps sit in your repo
+
+I learned this the expensive way.
+
+While experimenting with a scraping workflow, I stored a ~40MB CSV data dump directly inside my repository. Pretty normal for quick prototyping - or so I thought.
+
+At first, Cursor was brilliant — clean scripts, accurate SQL over DuckDB, tight improvements.
+
+Then things got weird:
+
+• Suggestions became generic
+• It started "rebuilding" logic from scratch
+• Loops, confusion, degraded speed
+• More token usage → higher cost
+• Responses felt like it had forgotten half my project
+
+At some point it clicked:
+
+The massive CSV file was polluting Cursor's context window, pushing out real code, configs, and comments. In hindsight it's obvious, but in the moment I kept debugging everything except that.
+
+💡 What I learned
+
+Keep data dumps out of your AI's context:
+
+• Add data directories to .cursorignore (or .gitignore)
+• Keep only small, representative samples in /fixtures/ or /examples/
+• Reference external data paths in your code
+
+The difference in responsiveness (and cost) is night and day.
+
+⚠️ Pro tip: Create a .cursorignore file in your repo root and add:
+
+data/
+*.csv
+*.json
+# Keep your AI focused on code
+
+🔍 Has anyone else hit unexpected gotchas with Cursor or other AI IDEs?
+
+Would love to hear what you've learned the hard way!
