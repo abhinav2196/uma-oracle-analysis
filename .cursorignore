@@ -9,6 +9,24 @@ data-dumps/
 *.json
 *.jsonl
 
-# Keep AI focused on code and documentation
-# Note: You can still explicitly read these files when needed
+# Archive and old files
+archive/
+
+# Test outputs
+test-output/
+test_results.txt
+
+# Temporary files
+*.tmp
+*.temp
+
+# Node modules (if any)
+node_modules/
+
+# Keep AI focused on:
+# - Active code (scripts/, sql-queries/)
+# - Current documentation (docs/, reports/)
+# - Configuration files (root level)
+# 
+# Note: You can still explicitly read ignored files when needed
 
