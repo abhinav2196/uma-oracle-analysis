@@ -26,8 +26,55 @@ def parse_condition(cond: str):
     raise ValueError(f"Unsupported condition: {cond}")
 
 
+def is_price_identifier(identifier: str) -> bool:
+    """
+    Check if an identifier represents a price query.
+    Examples: DEXTFUSD, BTCUSD, ETHUSD, FOXUSD, PERPUSD
+    """
+    if not identifier:
+        return False
+    
+    price_suffixes = ['USD', 'USDT', 'BTC', 'ETH']
+    price_keywords = ['PRICE', 'TWAP']
+    
+    id_upper = identifier.upper()
+    
+    # Check for price suffixes
+    for suffix in price_suffixes:
+        if id_upper.endswith(suffix):
+            return True
+    
+    # Check for price keywords
+    for keyword in price_keywords:
+        if keyword in id_upper:
+            return True
+    
+    return False
+
+
 def row_matches(row: Dict[str, str], conditions: List[str]) -> bool:
+    """
+    Enhanced matching that supports:
+    - Standard conditions: column==value, column~substring
+    - Special: PRICE_QUERY matches both ancillaryData and identifier-only queries
+    """
     for cond in conditions:
+        # Special handling for PRICE_QUERY meta-condition
+        if cond.strip() == "PRICE_QUERY":
+            # Match if either:
+            # 1. ancillaryData_text contains "price of"
+            # 2. identifier is a price query (XXXUSD, etc.)
+            ancillary = row.get("ancillaryData_text", "").lower()
+            identifier = row.get("identifier", "")
+            
+            has_price_text = "price of" in ancillary or "price above" in ancillary or "price below" in ancillary
+            has_price_id = is_price_identifier(identifier)
+            
+            if not (has_price_text or has_price_id):
+                return False
+            continue
+        
+        # Standard condition parsing
         col, op, val = parse_condition(cond)
         rv = row.get(col, "")
         if op == "==":
@@ -46,11 +93,26 @@ def row_matches(row: Dict[str, str], conditions: List[str]) -> bool:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Filter CSV rows with simple AND conditions")
+    parser = argparse.ArgumentParser(
+        description="Filter CSV rows with simple AND conditions",
+        epilog="""
+Examples:
+  # Standard conditions
+  --where 'ancillaryData_text~price of'
+  --where 'identifier==YES_OR_NO_QUERY'
+  
+  # Special meta-condition for price queries (catches both ancillaryData and identifier-only queries)
+  --where PRICE_QUERY
+  
+  # Catches: "Will the price of Bitcoin..." AND "DEXTFUSD", "BTCUSD", etc.
+        """,
+        formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     parser.add_argument("--network", required=True)
     parser.add_argument("--period", required=True)
     parser.add_argument("--input-csv", required=True)
-    parser.add_argument("--where", nargs="+", required=True, help="conditions like column==value column~substr")
+    parser.add_argument("--where", nargs="+", required=True, 
+                       help="conditions like 'column==value' or 'column~substr', or special: PRICE_QUERY")
     parser.add_argument("--stem", required=False, help="output stem name")
     args = parser.parse_args()
 
