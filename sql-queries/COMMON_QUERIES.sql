@@ -175,5 +175,50 @@ LIMIT 5;
 --
 -- Q: How many mention trading pairs?
 --    A: Run QUERY 7
+--
+-- Q: How many simple identifier-only queries (like DEXTFUSD, ETHUSDT)?
+--    A: Run QUERY 11
+-- ============================================================================
+
+
+-- ============================================================================
+-- QUERY 11: Simple Identifier-Only Queries
+-- ============================================================================
+-- Leadership Question: "How many requests were only simple price queries (e.g., ETH/USDT)?"
+-- 
+-- Definition: 
+--   - Identifier IS the query itself (ETHUSDT, BTCUSD, DEXTFUSD)
+--   - ancillaryData is empty or minimal
+--   - NOT full text format like "Will the price of Ethereum be above..."
+
+-- Note: This query requires loading all V2 requests, not just crypto_predictions
+-- Run MULTI_NETWORK_ANALYSIS.sql first to create all_v2_requests table
+
+-- Count simple identifier-only queries
+SELECT 
+    'Simple identifier-only queries (like DEXTFUSD)' as query_type,
+    COUNT(*) as count,
+    'Examples: ETHUSDT, BTCUSD, DEXTFUSD, SOLUSD' as format
+FROM all_v2_requests
+WHERE (identifier LIKE '%USD' OR identifier LIKE '%USDT' OR identifier LIKE '%BTC' OR identifier LIKE '%ETH')
+  AND identifier != 'YES_OR_NO_QUERY'
+  AND LENGTH(ancillaryData_text) < 50;
+
+-- Show identifier distribution
+SELECT 
+    identifier,
+    COUNT(*) as count,
+    CASE 
+        WHEN identifier = 'YES_OR_NO_QUERY' THEN 'Modern format (full text)'
+        WHEN identifier LIKE '%USD' OR identifier LIKE '%USDT' THEN 'Simple identifier-only'
+        ELSE 'Other'
+    END as format_type
+FROM all_v2_requests
+GROUP BY identifier, format_type
+ORDER BY count DESC;
+
+-- Expected result for September 2025: 0 simple queries
+-- All 29,942 requests use YES_OR_NO_QUERY format
+-- Simple format was common in 2021-2022 (DEXTFUSD era)
 -- ============================================================================
 

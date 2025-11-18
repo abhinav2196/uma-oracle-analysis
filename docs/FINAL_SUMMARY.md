@@ -460,6 +460,45 @@ data-dumps/
 
 ---
 
+## Follow-up Questions
+
+### Q: How many requests were only simple price queries (e.g., ETH/USDT, DEXTFUSD)?
+
+**Answer: 0 (Zero) in September 2025**
+
+**Definition of "simple price queries":**
+- Identifier IS the query itself (e.g., ETHUSDT, BTCUSD, DEXTFUSD)
+- ancillaryData is empty or minimal (< 50 characters)
+- NOT complex text like "Will the price of Ethereum be above $4,000..."
+
+**Findings:**
+
+| Format | Count | Example |
+|--------|-------|---------|
+| **Simple identifier-only** | **0** | ETHUSDT, BTCUSD, DEXTFUSD |
+| **Complex text format** | 29,942 | "Will the price of Ethereum..." |
+
+**All 29,946 September 2025 requests** use the modern YES_OR_NO_QUERY format with full text in ancillaryData.
+
+**Historical Context:**
+
+Simple identifier-only queries (like DEXTFUSD) were used in **2021-2022**:
+
+| Query | Network | Date | Format |
+|-------|---------|------|--------|
+| DEXTFUSD | Ethereum V1 | July 1, 2022 | Identifier-only (ancillaryData: 0x) |
+| FOXUSD | Ethereum V1 | March 2024 | Identifier-only |
+| PERPUSD | Ethereum V1 | December 2023 | Identifier-only |
+
+**Format evolution:**
+- **2021-2022:** Simple identifiers (DEXTFUSD, BTCUSD, ETHUSDT)
+- **2023+:** Standardized to YES_OR_NO_QUERY with detailed text
+- **2025:** 100% use modern format
+
+**To find simple queries:** Fetch historical Ethereum data (2021-2023) where this format was common.
+
+---
+
 ## Conclusion
 
 **Polygon is the undisputed hub for crypto price predictions** on UMA's Optimistic Oracle, accounting for 99.9% of all price-related activity in September 2025.
