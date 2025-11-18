@@ -94,6 +94,59 @@ make inventory-scripts # Generate scripts documentation
 
 ---
 
+## 📊 Analyze Data with SQL
+
+After running the pipeline, use DuckDB to analyze filtered results:
+
+### Quick Start
+
+```bash
+duckdb
+```
+
+```sql
+-- Load filtered crypto predictions
+CREATE TABLE crypto_predictions AS 
+SELECT * FROM read_csv_auto('data-dumps/*/september_2025/crypto_predictions.csv');
+
+-- How many ETH/USDT queries?
+SELECT COUNT(*) as eth_queries
+FROM crypto_predictions
+WHERE LOWER(ancillaryData_text) LIKE '%ethereum%' 
+   OR LOWER(ancillaryData_text) LIKE '%eth/%';
+```
+
+### Pre-built Query Collections
+
+**Common Questions:**
+```bash
+duckdb
+.read sql-queries/COMMON_QUERIES.sql
+```
+
+Available queries:
+- How many ETH/USDT queries? (Query 2)
+- Asset breakdown (Query 3, 4)
+- Sample queries (Query 5, 8)
+- Query patterns (Query 6)
+- Trading pairs (Query 7)
+
+**Multi-Network Comparison:**
+```bash
+duckdb
+.read sql-queries/MULTI_NETWORK_ANALYSIS.sql
+```
+
+Available queries:
+- Network activity summary (Query 1)
+- Crypto predictions by network (Query 2)
+- Polygon adapter comparison (Query 3)
+- Cross-network asset breakdown (Query 5-8)
+
+See: [`sql-queries/`](sql-queries/) for all available SQL queries
+
+---
+
 ## 📁 Repository Structure
 
 ```
