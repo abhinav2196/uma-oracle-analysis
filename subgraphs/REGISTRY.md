@@ -1,6 +1,6 @@
 # Subgraph Registry (verified)
 
-- Generated: 2025-11-17T23:48:58Z
+- Generated: 2025-11-18T00:05:43Z
 - Total: 21 | OK: 0 | Error: 21
 
 | Key | Name | Version | Status | Sample | Endpoint |

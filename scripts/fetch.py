@@ -7,10 +7,14 @@ import time
 from typing import Dict, List, Optional, Tuple
 import urllib.request
 import urllib.error
+import ssl
 
 # Add parent directory to path for imports when run from repo root
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.lib.io_utils import ensure_dir, output_paths
+
+# Create SSL context that doesn't verify certificates (for development)
+_ssl_context = ssl._create_unverified_context()
 
 
 GRAPH_GATEWAY_TEMPLATE = "https://gateway.thegraph.com/api/{api_key}/subgraphs/id/{subgraph_id}"
@@ -72,9 +76,13 @@ def infer_time_field(entity_type: Optional[str]) -> List[str]:
 
 def http_post_json(url: str, payload: Dict, timeout: int = DEFAULT_TIMEOUT_SECS) -> Tuple[int, str]:
     body = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"})
+    headers = {
+        "Content-Type": "application/json",
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+    }
+    req = urllib.request.Request(url, data=body, headers=headers)
     try:
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
+        with urllib.request.urlopen(req, timeout=timeout, context=_ssl_context) as resp:
             return resp.getcode(), resp.read().decode("utf-8", errors="replace")
     except urllib.error.HTTPError as e:
         try:

@@ -8,6 +8,10 @@ from typing import Dict, List, Optional, Tuple
 
 import urllib.request
 import urllib.error
+import ssl
+
+# Create SSL context that doesn't verify certificates (for development)
+_ssl_context = ssl._create_unverified_context()
 
 
 GRAPH_GATEWAY_TEMPLATE = "https://gateway.thegraph.com/api/{api_key}/subgraphs/id/{subgraph_id}"
@@ -119,9 +123,13 @@ def resolve_api_key(repo_root: str) -> Tuple[Optional[str], str]:
 
 def http_post_json(url: str, payload: Dict, timeout: int = DEFAULT_TIMEOUT_SECS) -> Tuple[int, str]:
     body = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"})
+    headers = {
+        "Content-Type": "application/json",
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+    }
+    req = urllib.request.Request(url, data=body, headers=headers)
     try:
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
+        with urllib.request.urlopen(req, timeout=timeout, context=_ssl_context) as resp:
             status = resp.getcode()
             data = resp.read().decode("utf-8", errors="replace")
             return status, data
