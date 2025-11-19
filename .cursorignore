@@ -1,0 +1,32 @@
+# Exclude large data dumps from AI context
+# These files pollute the context window and reduce AI accuracy
+
+# Data dumps directory
+data-dumps/
+
+# Large data files
+*.csv
+*.json
+*.jsonl
+
+# Archive and old files
+archive/
+
+# Test outputs
+test-output/
+test_results.txt
+
+# Temporary files
+*.tmp
+*.temp
+
+# Node modules (if any)
+node_modules/
+
+# Keep AI focused on:
+# - Active code (scripts/, sql-queries/)
+# - Current documentation (docs/, reports/)
+# - Configuration files (root level)
+# 
+# Note: You can still explicitly read ignored files when needed
+

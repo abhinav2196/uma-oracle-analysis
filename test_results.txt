@@ -1,0 +1,77 @@
+=== COMPLETE SUBGRAPH TESTING RESULTS ===
+Testing all 20 subgraph IDs with API key: 5ff06e4966bc3378b2bda95a5f7f98d3
+
+Testing: Polygon V2 old (ID: BpK8AdxzBU...)
+✅ WORKS!
+Entity types: OptimisticPriceRequest
+---
+Testing: Polygon V1 (ID: 2ytyuHupZX...)
+✅ WORKS!
+Entity types: OptimisticPriceRequest
+---
+Testing: Polygon V3 (ID: 7KWbDhUE5E...)
+✅ WORKS!
+Entity types: Assertion
+---
+Testing: Polygon V2 new (ID: CFjwxrBWKL...)
+✅ WORKS!
+Entity types: CustomBond
+CustomLiveness
+OptimisticPriceRequest
+---
+Testing: Ethereum V3 (ID: Bm3ytsa1Yv...)
+✅ WORKS!
+Entity types: Assertion
+---
+Testing: Ethereum V2 (ID: GwhSFqXRgL...)
+✅ WORKS!
+Entity types: OptimisticPriceRequest
+---
+Testing: Ethereum V1 (ID: 56QVFcqGEp...)
+✅ WORKS!
+Entity types: OptimisticPriceRequest
+---
+Testing: Optimism V1 (ID: E5E5muqrrz...)
+✅ WORKS!
+Entity types: OptimisticPriceRequest
+---
+Testing: Optimism V2 (ID: DF7sPTV4tc...)
+✅ WORKS!
+Entity types: OptimisticPriceRequest
+---
+Testing: Optimism V3 (ID: FyJQyV5TLN...)
+✅ WORKS!
+Entity types: Assertion
+---
+Testing: Arbitrum V1 (ID: 8UmLeHVL3L...)
+✅ WORKS!
+Entity types: OptimisticPriceRequest
+---
+Testing: Arbitrum V2 (ID: Ek5indViKv...)
+✅ WORKS!
+Entity types: OptimisticPriceRequest
+---
+Testing: Arbitrum V3 (ID: 9wpkM5tHgJ...)
+✅ WORKS!
+Entity types: Assertion
+---
+Testing: Blast V1 (ID: C2cBAgmb47...)
+✅ WORKS!
+Entity types: OptimisticPriceRequest
+---
+Testing: Blast V2 (ID: EzV7USiaSs...)
+✅ WORKS!
+Entity types: OptimisticPriceRequest
+---
+Testing: Base V2-A (ID: 2GnL9JwU3b...)
+✅ WORKS!
+Entity types: OptimisticPriceRequest
+---
+Testing: Base V2-B (ID: DMWJanhFZn...)
+✅ WORKS!
+Entity types: OptimisticPriceRequest
+---
+Testing: Base V3 (ID: 2Q4i8YgVZd...)
+✅ WORKS!
+Entity types: Assertion
+---

@@ -1,0 +1,52 @@
+{
+  "networks": {
+    "polygon": {
+      "name": "Polygon",
+      "subgraph_id": "CFjwxrBWKLnWSfCvP1aiA3F252H3cD3uyFUvvMSpEork",
+      "subgraph_id_old": "BpK8AdxzBUVnFN3ZCt2u3PgnKRNnS4WbM6MUETZ6b3yK",
+      "oracle_version": "v2",
+      "chain_id": 137,
+      "description": "Polygon PoS - Optimistic Oracle V2",
+      "contract_address": "0x2C0367a9DB231dDeBd88a94b4f6461a6e47C58B1",
+      "note": "VERIFIED: New ID returns 15,566 records vs old ID 14,448 (7.7% more complete). Use new ID."
+    },
+    "ethereum": {
+      "name": "Ethereum Mainnet",
+      "subgraph_id": "Bm3ytsa1YvcyFJahdfQQgscFQVCcMvoXujzkd3Cz6aof",
+      "oracle_version": "v3",
+      "chain_id": 1,
+      "description": "Ethereum Mainnet - Optimistic Oracle V3",
+      "contract_address": "0xfb55F43fB9F48F63f9269DB7Dde3BbBe1ebDC0dE"
+    },
+    "ethereum_v1_v2": {
+      "name": "Ethereum Mainnet V1/V2",
+      "subgraph_id": "41LCrgtCNBQyDiVVyZEuPxbvkBH9BxxLU3nEZst77V8o",
+      "oracle_version": "v1_v2",
+      "chain_id": 1,
+      "description": "Ethereum Mainnet - Optimistic Oracle V1 and V2 (combined subgraph)",
+      "contract_address_v1": "0xeE3Afe347D5C74317041E2618C49534dAf887c24",
+      "contract_address_v2": "0xA0Ae6609447e57a42c51B50EAe921D701823FFAe",
+      "note": "Combined V1/V2 oracle - includes price identifiers like DEXTFUSD (V1)"
+    },
+    "base": {
+      "name": "Base",
+      "subgraph_id": "2Q4i8YgVZd6bAmLyDxXgrKPL2B6QwySiEUqbTyQ4vm4C",
+      "oracle_version": "v3",
+      "chain_id": 8453,
+      "description": "Base - Optimistic Oracle V3",
+      "contract_address": "0x2aBf1Bd766655de80eDB3086114315Eec75AF500c"
+    }
+  },
+  "time_periods": {
+    "september_2025": {
+      "from": 1756684800,
+      "to": 1759276799,
+      "description": "Sep 1-30, 2025"
+    }
+  },
+  "the_graph": {
+    "endpoint_template": "https://gateway.thegraph.com/api/${API_KEY}/subgraphs/id/${SUBGRAPH_ID}",
+    "api_key_env_var": "THE_GRAPH_API_KEY"
+  }
+}
+

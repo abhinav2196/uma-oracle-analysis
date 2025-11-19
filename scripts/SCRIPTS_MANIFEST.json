@@ -1,0 +1,83 @@
+{
+  "total": 7,
+  "duplicates": 0,
+  "scripts": [
+    {
+      "path": "scripts/fetch.py",
+      "name": "fetch.py",
+      "extension": ".py",
+      "size_bytes": 8681,
+      "is_executable": false,
+      "has_shebang": true,
+      "sha1": "fc2bac4064eea5eceecaaa1451b16c63cf06d4e5",
+      "first_line": "#!/usr/bin/env python3",
+      "duplicate_of": null
+    },
+    {
+      "path": "scripts/convert.py",
+      "name": "convert.py",
+      "extension": ".py",
+      "size_bytes": 2936,
+      "is_executable": false,
+      "has_shebang": true,
+      "sha1": "c87d6a1d7adb13754c80b9f12e63d44303f633af",
+      "first_line": "#!/usr/bin/env python3",
+      "duplicate_of": null
+    },
+    {
+      "path": "scripts/filter.py",
+      "name": "filter.py",
+      "extension": ".py",
+      "size_bytes": 2674,
+      "is_executable": false,
+      "has_shebang": true,
+      "sha1": "0e98392c5998f3dc7335db48a11da6c207d1ad0f",
+      "first_line": "#!/usr/bin/env python3",
+      "duplicate_of": null
+    },
+    {
+      "path": "scripts/verify_subgraphs.py",
+      "name": "verify_subgraphs.py",
+      "extension": ".py",
+      "size_bytes": 10870,
+      "is_executable": false,
+      "has_shebang": true,
+      "sha1": "dcd561258bbeb49a8fcedda7f1c04c196698e39e",
+      "first_line": "#!/usr/bin/env python3",
+      "duplicate_of": null
+    },
+    {
+      "path": "scripts/inventory_scripts.py",
+      "name": "inventory_scripts.py",
+      "extension": ".py",
+      "size_bytes": 4471,
+      "is_executable": false,
+      "has_shebang": true,
+      "sha1": "eb1d16ffd1dff471d6fd0c3b56b79aec4efeeaa2",
+      "first_line": "#!/usr/bin/env python3",
+      "duplicate_of": null
+    },
+    {
+      "path": "scripts/lib/__init__.py",
+      "name": "__init__.py",
+      "extension": ".py",
+      "size_bytes": 38,
+      "is_executable": false,
+      "has_shebang": false,
+      "sha1": "bd24508f265156673e27b336fc3172be74b4deb1",
+      "first_line": "\"\"\"",
+      "duplicate_of": null
+    },
+    {
+      "path": "scripts/lib/io_utils.py",
+      "name": "io_utils.py",
+      "extension": ".py",
+      "size_bytes": 581,
+      "is_executable": false,
+      "has_shebang": false,
+      "sha1": "b6bad5d7fc544dc5411453d28f50122d26a95e0f",
+      "first_line": "import os",
+      "duplicate_of": null
+    }
+  ]
+}
